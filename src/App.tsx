@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import appLogo from '/favicon.svg'
 import PWABadge from './PWABadge.tsx'
@@ -6,6 +6,16 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  useEffect(() => {
+
+    Notification.requestPermission().then((permission) => {
+      if (permission === 'granted') {
+        // Subscribe to push notifications
+        console.log("aaaa")
+      }
+    });
+  })
 
   return (
     <>
